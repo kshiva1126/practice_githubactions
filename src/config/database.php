@@ -93,7 +93,7 @@ return [
 
         'ga_testing' => [
             'driver' => 'mysql',
-            'host' => 'localhost',
+            'host' => 'mysql',
             'port' => '3306',
             'database' => 'ga_test',
             'username' => 'root',
