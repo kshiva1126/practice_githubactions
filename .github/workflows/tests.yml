@@ -53,5 +53,4 @@ jobs:
         if: failure()
         with:
           name: Logs
-          path: ./storage/logs
-        working-directory: src
+          path: ./src/storage/logs
