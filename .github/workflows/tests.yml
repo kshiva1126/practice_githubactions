@@ -26,10 +26,10 @@ jobs:
       - uses: actions/checkout@v2.0.0
 
       - name: update apt-get
-        run: sudo apt-get update
+        run: apt-get update
 
       - name: docker php extensions install
-        run: sudo docker-php-ext-install pdo_mysql
+        run: docker-php-ext-install pdo_mysql
 
       - name: Cache composer dependencies
         uses: actions/cache@v1.1.0
