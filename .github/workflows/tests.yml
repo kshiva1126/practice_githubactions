@@ -20,7 +20,7 @@ jobs:
     container:
         image: php:7.4-fpm
         env:
-          - DB_CONNECTION: ga_testing
+          DB_CONNECTION: ga_testing
 
     steps:
       - uses: actions/checkout@v2.0.0
