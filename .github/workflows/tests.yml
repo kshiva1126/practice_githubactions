@@ -25,11 +25,14 @@ jobs:
     steps:
       - uses: actions/checkout@v2.0.0
 
-      - name: update apt-get
-        run: apt-get update
+      - name: Update apt-get
+        run: sudo apt-get update
 
-      - name: docker php extensions install
-        run: docker-php-ext-install pdo_mysql
+      - name: Docker php extensions install
+        run: sudo docker-php-ext-install pdo_mysql
+
+      - name: Install composer
+        run: cd /usr/bin && curl -s http://getcomposer.org/installer | php && ln -s /usr/bin/composer.phar /usr/bin/composer
 
       - name: Cache composer dependencies
         uses: actions/cache@v1.1.0
