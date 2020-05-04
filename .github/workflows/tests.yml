@@ -17,8 +17,19 @@ jobs:
           - 3306
         options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
 
+    container:
+        image: php:7.4-fpm
+        env:
+          - DB_CONNECTION: ga_testing
+
     steps:
       - uses: actions/checkout@v2.0.0
+
+      - name: update apt-get
+        run: sudo apt-get update
+
+      - name: docker php extensions install
+        run: sudo docker-php-ext-install pdo_mysql
 
       - name: Cache composer dependencies
         uses: actions/cache@v1.1.0
@@ -40,8 +51,8 @@ jobs:
 
       - name: Run tests
         run: ./vendor/bin/phpunit
-        env:
-          DB_CONNECTION: ga_testing
+        # env:
+        #   DB_CONNECTION: ga_testing
         working-directory: src
 
       - name: Upload artifacts
