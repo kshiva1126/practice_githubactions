@@ -8,7 +8,7 @@ use Tests\TestCase;
 
 class FailTest extends TestCase
 {
-    /*
+    /**
      * @test
      */
     public function 失敗()
